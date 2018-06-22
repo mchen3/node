@@ -5,22 +5,14 @@ const bodyParser = require('body-parser');
 app.use((bodyParser.urlencoded({extended: false})));
 app.use(bodyParser.json());
 
-app.get('/', (req,res) => {
-  res.send("getting root");
-});
+app.get('/:id', (req,res) => {
 
-app.get('/profile', (req,res) => {
-  res.send("getting profile");
-});
+  //console.log(req.query);
+  //console.log(req.body);
+  // console.log(req.headers);
+ console.log(req.params);
 
-app.post('/profile', (req,res) => {
-
-  console.log(req.body);
-  const user = {
-    name: 'Sally',
-    hobby: 'Skating'
-  }
-  res.send(user);
+  res.status(404).send("Not found");
 });
 
 app.listen(3000);
