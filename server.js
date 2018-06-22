@@ -1,9 +1,21 @@
 const express = require('express');
-
 const app = express();
 
+
 app.get('/', (req,res) => {
-  res.send('<h1>heello</h1>')
-})
+  res.send("getting root");
+});
+
+app.get('/profile', (req,res) => {
+  res.send("getting profile");
+});
+
+app.post('/profile', (req,res) => {
+  const user = {
+    name: 'Sally',
+    hobby: 'Skating'
+  }
+  res.send(user);
+});
 
 app.listen(3000);
